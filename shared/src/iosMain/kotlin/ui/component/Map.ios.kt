@@ -25,13 +25,9 @@ actual fun Map(modifier: Modifier, contentPadding: PaddingValues, polygons: Immu
     }
 }
 
-private lateinit var mapViewFactory: () -> MapViewFactory
-fun setFactory(factory: () -> MapViewFactory) {
-    mapViewFactory = factory
-}
+internal lateinit var mapViewFactory: () -> MapViewFactory
 
 interface MapViewFactory {
-
     val view: UIView
     fun setContentPadding(contentPadding: PaddingValues)
     fun setPolygons(polygons: ImmutableList<Polygon>)

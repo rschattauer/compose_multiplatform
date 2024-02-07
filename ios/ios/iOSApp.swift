@@ -6,7 +6,7 @@ struct iOSApp: SwiftUI.App {
 
     init() {
         KoinKt.doInitKoin()
-        Map_iosKt.setFactory(factory: mapViewFactory)
+        ViewFactoryKt.setViewFactory(mapViewFactory: mapViewFactory)
     }
 
 	var body: some Scene {
