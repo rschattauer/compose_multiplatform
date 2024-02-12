@@ -20,6 +20,7 @@ import com.mapbox.maps.extension.compose.annotation.generated.PolygonAnnotation
 import kotlinx.collections.immutable.ImmutableList
 import model.coordinate.LatLng
 import model.coordinate.Polygon
+import ui.theme.AppTheme
 
 @OptIn(MapboxExperimental::class)
 @Composable
@@ -89,5 +90,7 @@ actual fun Map(
 @Preview
 @Composable
 private fun Preview() {
-    Map()
+    AppTheme {
+        Map()
+    }
 }

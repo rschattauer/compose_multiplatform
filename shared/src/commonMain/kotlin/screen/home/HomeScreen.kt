@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import composemultiplatform.shared.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import resource.pluralResource
 import ui.theme.App
 
@@ -103,4 +104,10 @@ fun HomeScreen(
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun Preview() {
+    HomeScreen()
 }

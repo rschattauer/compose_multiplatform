@@ -11,6 +11,7 @@ kotlin {
     applyDefaultHierarchyTemplate()
 
     androidTarget()
+    jvm("desktop")
     listOf(
         iosX64(),
         iosArm64(),
@@ -24,7 +25,7 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.androidx.compose.ui.tooling.preview)
             implementation(libs.mapbox.maps.android)
             implementation(libs.mapbox.maps.compose)
             implementation(libs.koin.android)
@@ -37,6 +38,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.ui)
             implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
             api(libs.koin)
             api(libs.koin.compose)
             api(libs.kotlin.immutability)
@@ -48,6 +50,10 @@ kotlin {
         iosMain.dependencies {
             // Workaround for now, see https://github.com/cashapp/sqldelight/issues/4357#issuecomment-1839905700
             implementation(libs.touchlab.stately.common)
+        }
+        val desktopMain by getting
+        desktopMain.dependencies {
+            implementation(compose.desktop.common)
         }
         all {
             languageSettings.optIn("androidx.compose.foundation.ExperimentalFoundationApi")
@@ -67,6 +73,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     dependencies {
-        debugImplementation(libs.compose.ui.tooling)
+        debugImplementation(libs.androidx.compose.ui.tooling)
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.9"
     }
 }

@@ -4,9 +4,9 @@ android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activityCompose = "1.8.2"
+androidx-compose = "1.6.0"
 androidx-coreSplashscreen = "1.0.1"
 androidx-datastorePreferences = "1.1.0-beta01"
-compose = "1.6.0"
 compose-plugin = "1.6.0-beta02"
 compose-precompose = "1.5.10"
 detekt = "1.23.5"
@@ -22,11 +22,11 @@ touchlab-stately = "2.0.6"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-compose" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-coreSplashscreen" }
 androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastorePreferences" }
 compose-detekt-rules = { module = "io.nlopez.compose.rules:detekt", version.ref = "detekt-compose-rules" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-precompose = { module = "moe.tlaster:precompose", version.ref = "compose-precompose" }
 compose-precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "compose-precompose" }
 compose-precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "compose-precompose" }
