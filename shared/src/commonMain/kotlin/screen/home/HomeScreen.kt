@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import composemultiplatform.shared.generated.resources.Res
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import resource.pluralResource
 import ui.theme.App
 
 @Composable
@@ -56,6 +57,22 @@ fun HomeScreen(
         )
         Text(
             text = "Copy copy cOpY CoPy copy cOpY CoPy copy cOpY CoPy copy cOpY CoPy copy cOpY CoPy copy cOpY CoPy",
+            style = App.typographies.copy,
+        )
+        Text(
+            text = pluralResource(Res.string.plural_example, 0, "Example"),
+            style = App.typographies.copy,
+        )
+        Text(
+            text = pluralResource(Res.string.plural_example, 1, "Example"),
+            style = App.typographies.copy,
+        )
+        Text(
+            text = pluralResource(Res.string.plural_example, 2, "Example"),
+            style = App.typographies.copy,
+        )
+        Text(
+            text = pluralResource(Res.string.plural_example, 5, "Example"),
             style = App.typographies.copy,
         )
         Button(

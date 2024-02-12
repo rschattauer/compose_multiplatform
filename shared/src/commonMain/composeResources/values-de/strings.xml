@@ -3,4 +3,9 @@
     <string name="home">ZuHause</string>
     <string name="map">Karte</string>
     <string name="video">Video</string>
+    <string-array name="plural_example">
+        <item>Wert für Null</item>
+        <item>Wert für Eins</item>
+        <item>Wert für Weitere %1$s</item>
+    </string-array>
 </resources>
