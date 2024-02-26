@@ -13,6 +13,9 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import composemultiplatform.shared.generated.resources.Res
+import composemultiplatform.shared.generated.resources.home
+import composemultiplatform.shared.generated.resources.map
+import composemultiplatform.shared.generated.resources.video
 import moe.tlaster.precompose.navigation.NavHost
 import moe.tlaster.precompose.navigation.NavOptions
 import moe.tlaster.precompose.navigation.Navigator

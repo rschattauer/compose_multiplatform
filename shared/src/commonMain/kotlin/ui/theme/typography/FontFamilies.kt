@@ -5,6 +5,10 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import composemultiplatform.shared.generated.resources.Res
+import composemultiplatform.shared.generated.resources.advent_pro_bold
+import composemultiplatform.shared.generated.resources.advent_pro_light
+import composemultiplatform.shared.generated.resources.advent_pro_medium
+import composemultiplatform.shared.generated.resources.advent_pro_regular
 import org.jetbrains.compose.resources.Font
 
 object FontFamilies {

@@ -24,6 +24,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import composemultiplatform.shared.generated.resources.Res
+import composemultiplatform.shared.generated.resources.compose_multiplatform
+import composemultiplatform.shared.generated.resources.example_ai_image
+import composemultiplatform.shared.generated.resources.hello_world
+import composemultiplatform.shared.generated.resources.plural_example
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
