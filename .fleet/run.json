@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "name": "android",
+            "type": "android-app",
+            "workingDir": "$PROJECT_DIR$",
+            "allowParallelRun": true,
+            "module": "ComposeMultiplatform.android.main",
+        },
+        {
+            "name": "ios",
+            "type": "xcode-app",
+            "buildTarget": {
+                "project": "ios",
+                "target": "ios",
+            },
+            "configuration": "Debug",
+        },
+        {
+            "name": "Format",
+            "type": "gradle",
+            "tasks": [
+                "ktlintFormat"
+            ]
+        },
+        {
+            "name": "Check",
+            "type": "gradle",
+            "tasks": [
+                "ktlintCheck",
+                "detekt"
+            ]
+        }
+    ]
+}
