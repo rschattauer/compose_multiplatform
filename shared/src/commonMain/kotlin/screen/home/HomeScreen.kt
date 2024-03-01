@@ -22,6 +22,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.semantics.role
 import androidx.compose.ui.unit.dp
 import composemultiplatform.shared.generated.resources.Res
 import composemultiplatform.shared.generated.resources.compose_multiplatform
@@ -80,6 +83,7 @@ fun HomeScreen(
         Text(
             text = pluralResource(Res.string.plural_example, 5, "Example"),
             style = App.typographies.copy,
+            modifier = Modifier.clickable(role = Role.Image, onClick = {}),
         )
         Button(
             onClick = { image = (image + 1) % 3 },
