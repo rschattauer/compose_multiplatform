@@ -7,7 +7,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.tooling.preview.Preview
 import com.mapbox.geojson.Point
 import com.mapbox.maps.MapboxExperimental
 import com.mapbox.maps.extension.compose.DefaultSettingsProvider.defaultAttributionSettings
@@ -20,7 +19,6 @@ import com.mapbox.maps.extension.compose.annotation.generated.PolygonAnnotation
 import kotlinx.collections.immutable.ImmutableList
 import model.coordinate.LatLng
 import model.coordinate.Polygon
-import ui.theme.AppTheme
 
 @OptIn(MapboxExperimental::class)
 @Composable
@@ -84,13 +82,5 @@ actual fun Map(
                 points = listOf(polygon.latLngs.map { Point.fromLngLat(it.longitude, it.latitude) }),
             )
         }
-    }
-}
-
-@Preview
-@Composable
-private fun Preview() {
-    AppTheme {
-        Map()
     }
 }
