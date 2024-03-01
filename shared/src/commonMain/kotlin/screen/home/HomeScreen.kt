@@ -33,6 +33,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import resource.pluralResource
 import ui.theme.App
+import ui.theme.AppTheme
 
 @Composable
 fun HomeScreen(
@@ -113,5 +114,7 @@ fun HomeScreen(
 @Preview
 @Composable
 private fun Preview() {
-    HomeScreen()
+    AppTheme {
+        HomeScreen()
+    }
 }
