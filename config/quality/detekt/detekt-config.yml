@@ -1,0 +1,49 @@
+build:
+  maxIssues: 0
+
+comments:
+  UndocumentedPublicClass:
+    active: false
+  UndocumentedPublicFunction:
+    active: false
+
+complexity:
+  TooManyFunctions:
+    thresholdInClasses: 15
+    ignoreOverridden: true
+    ignorePrivate: true
+  LongParameterList:
+    ignoreDataClasses: true
+    ignoreDefaultParameters: true
+    ignoreAnnotated:
+      - Composable
+  CyclomaticComplexMethod:
+    active: false
+  LongMethod:
+    active: false
+
+naming:
+  FunctionNaming:
+    ignoreAnnotated:
+      - Composable
+
+style:
+  DestructuringDeclarationWithTooManyEntries:
+    ignoreAnnotated:
+      - Composable
+  MagicNumber:
+    ignoreNumbers: [ '-1','0','0.5','1','2','10','100','1000' ]
+    ignorePropertyDeclaration: true
+    ignoreAnnotation: true
+    ignoreAnnotated:
+      - Preview
+      - Composable
+  ReturnCount:
+    max: 3
+  UnusedImports:
+    active: true
+  MaxLineLength:
+    active: false
+  UnusedPrivateMember:
+    ignoreAnnotated:
+      - Preview

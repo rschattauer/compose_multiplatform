@@ -1,0 +1,57 @@
+[versions]
+agp = "8.4.1"
+android-compileSdk = "34"
+android-minSdk = "24"
+android-targetSdk = "34"
+androidx-activityCompose = "1.9.0"
+androidx-compose = "1.6.7"
+androidx-coreSplashscreen = "1.0.1"
+androidx-datastorePreferences = "1.1.1"
+androidx-lifecycle = "2.8.0"
+androidx-navigation = "2.8.0-alpha02"
+detekt = "1.23.6"
+detekt-compose-rules = "0.4.2"
+koin = "3.6.0-Beta4"
+koin-compose = "1.2.0-Beta4"
+kotlin = "2.0.0"
+kotlin-immutability = "0.3.7"
+kotlin-compose-plugin = "1.6.11"
+ktlint = "12.1.1"
+mapbox = "11.2.0"
+touchlab-kermit = "2.0.3"
+touchlab-skie = "0.8.1"
+touchlab-stately = "2.0.7"
+
+[libraries]
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-compose" }
+androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-coreSplashscreen" }
+androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastorePreferences" }
+androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-navigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
+compose-detekt-rules = { module = "io.nlopez.compose.rules:detekt", version.ref = "detekt-compose-rules" }
+gradle-plugin-androidApplication = { group = "com.android.application", name = "com.android.application.gradle.plugin", version.ref = "agp" }
+gradle-plugin-androidLibrary = { group = "com.android.library", name = "com.android.library.gradle.plugin", version.ref = "agp" }
+gradle-plugin-detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+gradle-plugin-kotlinMultiplatform = { group = "org.jetbrains.kotlin.multiplatform", name = "org.jetbrains.kotlin.multiplatform.gradle.plugin", version.ref = "kotlin" }
+gradle-plugin-ktlint = { group = "org.jlleitschuh.gradle.ktlint", name = "org.jlleitschuh.gradle.ktlint.gradle.plugin", version.ref = "ktlint" }
+koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin-compose" }
+kotlin-immutability = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlin-immutability" }
+mapbox-maps-android = { module = "com.mapbox.maps:android", version.ref = "mapbox" }
+mapbox-maps-compose = { module = "com.mapbox.extension:maps-compose", version.ref = "mapbox" }
+touchlab-kermit = { group = "co.touchlab", name = "kermit", version.ref = "touchlab-kermit" }
+touchlab-stately-common = { group = "co.touchlab", name = "stately-common", version.ref = "touchlab-stately" }
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose-plugin" }
+jetbrainsComposeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+skie = { id = "co.touchlab.skie", version.ref = "touchlab-skie" }

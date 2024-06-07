@@ -1,0 +1,12 @@
+<resources>
+    <string name="hello_world">Hello World</string>
+    <string name="home">Home</string>
+    <string name="home_resume_message">Welcome back home!</string>
+    <string name="map">Map</string>
+    <string name="video">Video</string>
+    <plurals name="plural_example">
+        <item quantity="zero">Value for zero</item>
+        <item quantity="one">Value for one</item>
+        <item quantity="other">Value for other %1$s</item>
+    </plurals>
+</resources>
