@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import com.mapbox.geojson.Point
+import com.mapbox.maps.MapInitOptions
 import com.mapbox.maps.MapboxExperimental
 import com.mapbox.maps.extension.compose.DefaultSettingsProvider.defaultAttributionSettings
 import com.mapbox.maps.extension.compose.DefaultSettingsProvider.defaultCompassSettings
@@ -76,6 +77,7 @@ actual fun Map(
         scaleBarSettings = scaleBarSettings,
         attributionSettings = attributionSettings,
         compassSettings = compassSettings,
+        mapInitOptionsFactory = { initContext -> MapInitOptions(context = initContext, textureView = true) },
     ) {
         polygons.forEach { polygon ->
             PolygonAnnotation(

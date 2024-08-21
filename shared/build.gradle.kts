@@ -44,6 +44,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.androidx.navigation)
+            implementation(libs.haze)
+            implementation(libs.haze.materials)
             api(libs.koin)
             api(libs.koin.compose)
             api(libs.koin.compose.viewmodel)
@@ -61,6 +63,7 @@ kotlin {
         all {
             languageSettings.optIn("androidx.compose.foundation.ExperimentalFoundationApi")
             languageSettings.optIn("androidx.compose.material3.ExperimentalMaterial3Api")
+            languageSettings.optIn("dev.chrisbanes.haze.materials.ExperimentalHazeMaterialsApi")
             languageSettings.optIn("kotlinx.cinterop.ExperimentalForeignApi")
             languageSettings.optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
             languageSettings.optIn("org.koin.core.annotation.KoinExperimentalAPI")

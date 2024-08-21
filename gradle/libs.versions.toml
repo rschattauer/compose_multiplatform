@@ -11,15 +11,16 @@ androidx-lifecycle = "2.8.0"
 androidx-navigation = "2.8.0-alpha02"
 detekt = "1.23.6"
 detekt-compose-rules = "0.4.2"
+haze = "0.9.0-alpha07"
 koin = "3.6.0-Beta4"
 koin-compose = "1.2.0-Beta4"
-kotlin = "2.0.0"
+kotlin = "2.0.10"
 kotlin-immutability = "0.3.7"
 kotlin-compose-plugin = "1.6.11"
 ktlint = "12.1.1"
 mapbox = "11.2.0"
 touchlab-kermit = "2.0.3"
-touchlab-skie = "0.8.1"
+touchlab-skie = "0.8.4"
 touchlab-stately = "2.0.7"
 
 [libraries]
@@ -37,6 +38,8 @@ gradle-plugin-androidLibrary = { group = "com.android.library", name = "com.andr
 gradle-plugin-detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 gradle-plugin-kotlinMultiplatform = { group = "org.jetbrains.kotlin.multiplatform", name = "org.jetbrains.kotlin.multiplatform.gradle.plugin", version.ref = "kotlin" }
 gradle-plugin-ktlint = { group = "org.jlleitschuh.gradle.ktlint", name = "org.jlleitschuh.gradle.ktlint.gradle.plugin", version.ref = "ktlint" }
+haze = { group = "dev.chrisbanes.haze", name = "haze", version.ref = "haze" }
+haze-materials = { group = "dev.chrisbanes.haze", name = "haze-materials", version.ref = "haze" }
 koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose" }

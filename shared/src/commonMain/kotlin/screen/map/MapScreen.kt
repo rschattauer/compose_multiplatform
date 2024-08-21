@@ -1,7 +1,14 @@
 package screen.map
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -9,11 +16,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
+import composemultiplatform.shared.generated.resources.Res
+import composemultiplatform.shared.generated.resources.map
+import dev.chrisbanes.haze.HazeState
+import dev.chrisbanes.haze.haze
+import dev.chrisbanes.haze.hazeChild
+import dev.chrisbanes.haze.materials.HazeMaterials
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import model.coordinate.LatLng
 import model.coordinate.Polygon
+import org.jetbrains.compose.resources.stringResource
 import ui.component.Map
 
 @Composable
@@ -22,10 +38,30 @@ fun MapScreen(
     contentPadding: PaddingValues = PaddingValues(0.dp),
 ) {
     var polygons by remember { mutableStateOf(persistentListOf<Polygon>()) }
-    Map(
-        modifier = modifier.fillMaxSize(),
-        contentPadding = contentPadding,
-        polygons = polygons,
+    val hazeState = remember { HazeState() }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent),
+                title = {
+                    Text(stringResource(Res.string.map))
+                },
+                modifier = Modifier.hazeChild(
+                    state = hazeState,
+                    style = HazeMaterials.ultraThin(containerColor = Color.White),
+                ),
+            )
+        },
+        content = { paddingValues ->
+            Box(modifier = Modifier.haze(state = hazeState)) {
+                Map(
+                    modifier = modifier.fillMaxSize(),
+                    contentPadding = paddingValues + contentPadding,
+                    polygons = polygons,
+                )
+            }
+        },
+        modifier = Modifier,
     )
     LaunchedEffect(Unit) {
         delay(5_000)
@@ -59,4 +95,15 @@ fun MapScreen(
             ),
         )
     }
+}
+
+@Composable
+operator fun PaddingValues.plus(other: PaddingValues): PaddingValues {
+    val layoutDirection = LocalLayoutDirection.current
+    return PaddingValues(
+        start = calculateStartPadding(layoutDirection) + other.calculateStartPadding(layoutDirection),
+        end = calculateEndPadding(layoutDirection) + other.calculateEndPadding(layoutDirection),
+        top = calculateTopPadding() + other.calculateTopPadding(),
+        bottom = calculateBottomPadding() + other.calculateBottomPadding(),
+    )
 }
