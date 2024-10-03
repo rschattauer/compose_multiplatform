@@ -3,9 +3,12 @@ package ui.component
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.interop.UIKitView
-import androidx.compose.ui.interop.UIKitViewController
+import androidx.compose.ui.viewinterop.UIKitInteropInteractionMode
+import androidx.compose.ui.viewinterop.UIKitInteropProperties
+import androidx.compose.ui.viewinterop.UIKitView
+import androidx.compose.ui.viewinterop.UIKitViewController
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -25,6 +28,7 @@ actual fun Map(modifier: Modifier, contentPadding: PaddingValues, polygons: Immu
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun MapWithUIKit(
     contentPadding: PaddingValues,
@@ -38,6 +42,10 @@ private fun MapWithUIKit(
             factory.setContentPadding(contentPadding = contentPadding)
             factory.setPolygons(polygons = polygons)
         },
+        properties = UIKitInteropProperties(
+            interactionMode = UIKitInteropInteractionMode.NonCooperative,
+            isNativeAccessibilityEnabled = true,
+        ),
         modifier = modifier,
     )
 }
@@ -50,6 +58,7 @@ interface MapWithUIKitViewFactory {
     fun setPolygons(polygons: ImmutableList<Polygon>)
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 private fun MapWithSwiftUI(
     contentPadding: PaddingValues,
@@ -65,6 +74,10 @@ private fun MapWithSwiftUI(
             polygonsState.update { polygons }
             contentPaddingState.update { contentPadding }
         },
+        properties = UIKitInteropProperties(
+            interactionMode = UIKitInteropInteractionMode.NonCooperative,
+            isNativeAccessibilityEnabled = true,
+        ),
         modifier = modifier,
     )
 }

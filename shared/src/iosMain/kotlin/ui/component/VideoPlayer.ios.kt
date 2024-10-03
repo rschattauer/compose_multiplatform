@@ -1,54 +1,72 @@
 package ui.component
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.interop.UIKitView
-import kotlinx.cinterop.CValue
+import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.viewinterop.UIKitInteropProperties
+import androidx.compose.ui.viewinterop.UIKitView
+import platform.AVFoundation.AVLayerVideoGravityResize
+import platform.AVFoundation.AVLayerVideoGravityResizeAspect
+import platform.AVFoundation.AVLayerVideoGravityResizeAspectFill
 import platform.AVFoundation.AVPlayer
-import platform.AVFoundation.AVPlayerLayer
-import platform.AVFoundation.pause
+import platform.AVFoundation.AVPlayerItem
+import platform.AVFoundation.AVURLAsset
 import platform.AVFoundation.play
+import platform.AVFoundation.replaceCurrentItemWithPlayerItem
 import platform.AVKit.AVPlayerViewController
-import platform.CoreGraphics.CGRect
+import platform.CoreGraphics.CGRectMake
 import platform.Foundation.NSURL
-import platform.QuartzCore.CATransaction
-import platform.QuartzCore.kCATransactionDisableActions
-import platform.UIKit.UIView
 
 @Composable
-actual fun VideoPlayer(url: String, modifier: Modifier) {
-    val player = remember { AVPlayer(uRL = NSURL.URLWithString(url)!!) }
-    val playerLayer = remember { AVPlayerLayer() }
-    val avPlayerViewController = remember { AVPlayerViewController() }
-    avPlayerViewController.player = player
-    avPlayerViewController.showsPlaybackControls = true
-    playerLayer.player = player
-
-    UIKitView(
-        factory = {
-            UIView().apply {
-                addSubview(avPlayerViewController.view)
-            }
-        },
-        onResize = { view: UIView, rect: CValue<CGRect> ->
-            CATransaction.begin()
-            CATransaction.setValue(true, kCATransactionDisableActions)
-            view.layer.setFrame(rect)
-            playerLayer.setFrame(rect)
-            avPlayerViewController.view.layer.frame = rect
-            CATransaction.commit()
-        },
-        update = {
-            player.play()
-            avPlayerViewController.player?.play()
-        },
+actual fun VideoPlayer(
+    url: String,
+    modifier: Modifier,
+) = with(LocalDensity.current) {
+    val player = remember { AVPlayer() }
+    val controller = remember {
+        AVPlayerViewController(null, null).apply {
+            this.player = player
+            this.videoGravity = AVLayerVideoGravityResizeAspect
+            this.showsPlaybackControls = true
+        }
+    }
+    Box(
+        contentAlignment = Alignment.Center,
         modifier = modifier,
-    )
-    DisposableEffect(Unit) {
+    ) {
+        UIKitView(
+            factory = { controller.view },
+            properties = UIKitInteropProperties(isInteractive = true, isNativeAccessibilityEnabled = true),
+            modifier = Modifier
+                .fillMaxSize()
+                .onGloballyPositioned { coordinates ->
+                    val size = coordinates.size
+                    val frame = CGRectMake(
+                        x = 0.0,
+                        y = 0.0,
+                        width = size.width.toDp().value.toDouble(),
+                        height = size.height.toDp().value.toDouble(),
+                    )
+                    controller.view.setFrame(frame)
+                },
+        )
+    }
+    LaunchedEffect(url) {
+        val asset = AVURLAsset(NSURL(string = url), null)
+        val playerItem = AVPlayerItem(asset = asset)
+        player.replaceCurrentItemWithPlayerItem(item = playerItem)
+        player.play()
+    }
+    DisposableEffect(url) {
         onDispose {
-            player.pause()
+            player.replaceCurrentItemWithPlayerItem(null)
         }
     }
 }
