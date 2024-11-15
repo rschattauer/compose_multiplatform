@@ -40,7 +40,7 @@ import ui.theme.App
 @Composable
 fun OnboardingScreen(
     modifier: Modifier = Modifier,
-    onOnboardingComplete: () -> Unit,
+    onOnboardingComplete: () -> Unit = {},
 ) {
     val viewModel = koinViewModel<OnboardingViewModel>()
     val isOnboardingCompleted by viewModel.isOnboardingCompleted.collectAsStateWithLifecycle(initialValue = null)
@@ -78,7 +78,7 @@ private fun Splash(modifier: Modifier = Modifier) {
 @Composable
 private fun Onboarding(
     modifier: Modifier = Modifier,
-    onClick: () -> Unit,
+    onClick: () -> Unit = {},
 ) {
     var imageIndex by remember { mutableIntStateOf(0) }
     val imageVector by remember(imageIndex) {

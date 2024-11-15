@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.1"
+agp = "8.7.2"
 android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
@@ -9,17 +9,16 @@ androidx-coreSplashscreen = "1.0.1"
 androidx-datastorePreferences = "1.1.1"
 androidx-lifecycle = "2.8.4"
 androidx-navigation = "2.8.0-alpha10"
-detekt = "1.23.6"
-detekt-compose-rules = "0.4.2"
-koin = "3.6.0-Beta4"
-koin-compose = "1.2.0-Beta4"
-kotlin = "2.0.0"
-kotlin-immutability = "0.3.7"
+detekt = "1.23.7"
+detekt-compose-rules = "0.4.18"
+koin = "4.0.0"
+kotlin = "2.0.21"
+kotlin-immutability = "0.3.8"
 kotlin-compose-plugin = "1.7.1"
 ktlint = "12.1.1"
-mapbox = "11.2.0"
-touchlab-kermit = "2.0.3"
-touchlab-skie = "0.8.1"
+mapbox = "11.8.0"
+touchlab-kermit = "2.0.4"
+touchlab-skie = "0.9.3"
 touchlab-stately = "2.0.7"
 
 [libraries]
@@ -39,8 +38,8 @@ gradle-plugin-kotlinMultiplatform = { group = "org.jetbrains.kotlin.multiplatfor
 gradle-plugin-ktlint = { group = "org.jlleitschuh.gradle.ktlint", name = "org.jlleitschuh.gradle.ktlint.gradle.plugin", version.ref = "ktlint" }
 koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose" }
-koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin-compose" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
 kotlin-immutability = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlin-immutability" }
 mapbox-maps-android = { module = "com.mapbox.maps:android", version.ref = "mapbox" }
 mapbox-maps-compose = { module = "com.mapbox.extension:maps-compose", version.ref = "mapbox" }
