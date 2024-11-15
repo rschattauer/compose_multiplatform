@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
@@ -88,5 +91,11 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.9"
+    }
+}
+
+tasks.withType<KotlinCompile> {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
     }
 }

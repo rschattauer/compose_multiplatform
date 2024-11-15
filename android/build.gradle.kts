@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("android")
     id("com.android.application")
@@ -38,14 +41,17 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
-    }
     dependencies {
         implementation(project(":shared"))
         implementation(libs.androidx.activity.compose)
         implementation(libs.androidx.core.splashscreen)
         implementation(libs.koin.android)
         implementation(libs.mapbox.maps.android)
+    }
+}
+
+tasks.withType<KotlinCompile> {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
     }
 }
