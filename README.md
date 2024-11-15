@@ -13,6 +13,8 @@ This project shows how to use kotlin multiplatform with compose and custom ui co
 * `/ios` contains the iOS application. Even if you’re sharing your UI with Compose Multiplatform,
   you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
 
+![Example](https://raw.githubusercontent.com/rschattauer/compose_multiplatform/main/example.gif)
+
 # Before running:
 
 - Install the following IntelliJ plugin https://plugins.jetbrains.com/plugin/16541-compose-multiplatform-ide-support
