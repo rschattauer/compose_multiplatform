@@ -19,12 +19,14 @@ import platform.UIKit.UIView
 import platform.UIKit.UIViewController
 
 @Composable
-actual fun Map(modifier: Modifier, contentPadding: PaddingValues, polygons: ImmutableList<Polygon>) {
-    val useUIKitInsteadOfSwiftUI = false
-    if (useUIKitInsteadOfSwiftUI) {
-        MapWithUIKit(contentPadding, polygons, modifier)
-    } else {
-        MapWithSwiftUI(contentPadding, polygons, modifier)
+actual fun ManualBridgeMap(modifier: Modifier, contentPadding: PaddingValues, polygons: ImmutableList<Polygon>) {
+    when {
+        // Show iOS map using touchlabs swift bridge
+        true -> SwiftBridgeMap(modifier, contentPadding, polygons)
+        // Show iOS map using manual bridge with UIKit
+        false -> MapWithUIKit(contentPadding, polygons, modifier)
+        // Show iOS map using manual bridge with SwiftUI
+        false -> MapWithSwiftUI(contentPadding, polygons, modifier)
     }
 }
 
@@ -74,6 +76,22 @@ private fun MapWithSwiftUI(
             polygonsState.update { polygons }
             contentPaddingState.update { contentPadding }
         },
+        properties = UIKitInteropProperties(
+            interactionMode = UIKitInteropInteractionMode.NonCooperative,
+            isNativeAccessibilityEnabled = true,
+        ),
+        modifier = modifier,
+    )
+}
+
+@OptIn(ExperimentalComposeUiApi::class)
+@Composable
+fun MapCustomInterop(
+    modifier: Modifier,
+    factory: () -> UIViewController,
+) {
+    UIKitViewController(
+        factory = factory,
         properties = UIKitInteropProperties(
             interactionMode = UIKitInteropInteractionMode.NonCooperative,
             isNativeAccessibilityEnabled = true,

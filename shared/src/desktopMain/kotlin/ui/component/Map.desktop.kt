@@ -11,7 +11,7 @@ import kotlinx.collections.immutable.ImmutableList
 import model.coordinate.Polygon
 
 @Composable
-actual fun Map(
+actual fun ManualBridgeMap(
     modifier: Modifier,
     contentPadding: PaddingValues,
     polygons: ImmutableList<Polygon>,
@@ -21,3 +21,14 @@ actual fun Map(
         polygons.forEach { polygon -> Text(text = "Polygon: ${polygon.latLngs}") }
     }
 }
+
+@Composable
+actual fun SwiftBridgeMap(
+    modifier: Modifier,
+    contentPadding: PaddingValues,
+    polygons: ImmutableList<Polygon>,
+) = ManualBridgeMap(
+    modifier = modifier,
+    contentPadding = contentPadding,
+    polygons = polygons,
+)

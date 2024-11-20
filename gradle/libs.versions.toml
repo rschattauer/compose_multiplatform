@@ -15,11 +15,13 @@ koin = "4.0.0"
 kotlin = "2.0.21"
 kotlin-immutability = "0.3.8"
 kotlin-compose-plugin = "1.7.1"
+ksp = "2.0.21-1.0.28"
 ktlint = "12.1.1"
 mapbox = "11.8.0"
 touchlab-kermit = "2.0.4"
 touchlab-skie = "0.9.3"
 touchlab-stately = "2.0.7"
+touchlab-swift-bridge-compose = "0.1.0"
 
 [libraries]
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -35,7 +37,9 @@ gradle-plugin-androidApplication = { group = "com.android.application", name = "
 gradle-plugin-androidLibrary = { group = "com.android.library", name = "com.android.library.gradle.plugin", version.ref = "agp" }
 gradle-plugin-detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 gradle-plugin-kotlinMultiplatform = { group = "org.jetbrains.kotlin.multiplatform", name = "org.jetbrains.kotlin.multiplatform.gradle.plugin", version.ref = "kotlin" }
+gradle-plugin-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 gradle-plugin-ktlint = { group = "org.jlleitschuh.gradle.ktlint", name = "org.jlleitschuh.gradle.ktlint.gradle.plugin", version.ref = "ktlint" }
+gradle-plugin-skie = { group = "co.touchlab.skie", name = "co.touchlab.skie.gradle.plugin", version.ref = "touchlab-skie" }
 koin = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
@@ -45,6 +49,8 @@ mapbox-maps-android = { module = "com.mapbox.maps:android", version.ref = "mapbo
 mapbox-maps-compose = { module = "com.mapbox.extension:maps-compose", version.ref = "mapbox" }
 touchlab-kermit = { group = "co.touchlab", name = "kermit", version.ref = "touchlab-kermit" }
 touchlab-stately-common = { group = "co.touchlab", name = "stately-common", version.ref = "touchlab-stately" }
+touchlab-swift-bridge-compose = { group = "co.touchlab.compose", name = "compose-swift-bridge", version.ref = "touchlab-swift-bridge-compose" }
+touchlab-swift-bridge-compose-skie = { group = "co.touchlab.compose", name = "compose-swift-bridge-skie", version.ref = "touchlab-swift-bridge-compose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
@@ -52,5 +58,6 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "kotlin-compose-plugin" }
 jetbrainsComposeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 skie = { id = "co.touchlab.skie", version.ref = "touchlab-skie" }

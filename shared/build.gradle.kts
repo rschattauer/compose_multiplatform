@@ -7,9 +7,9 @@ plugins {
     id("kotlin-parcelize")
     id("format-detekt-convention")
     id("format-ktlint-convention")
+    id("skie-convention")
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.jetbrainsComposeCompiler)
-    alias(libs.plugins.skie)
 }
 
 kotlin {

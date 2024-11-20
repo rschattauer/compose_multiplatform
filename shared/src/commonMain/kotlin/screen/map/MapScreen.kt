@@ -14,7 +14,7 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import model.coordinate.LatLng
 import model.coordinate.Polygon
-import ui.component.Map
+import ui.component.ManualBridgeMap
 
 @Composable
 fun MapScreen(
@@ -22,7 +22,7 @@ fun MapScreen(
     contentPadding: PaddingValues = PaddingValues(0.dp),
 ) {
     var polygons by remember { mutableStateOf(persistentListOf<Polygon>()) }
-    Map(
+    ManualBridgeMap(
         modifier = modifier.fillMaxSize(),
         contentPadding = contentPadding,
         polygons = polygons,

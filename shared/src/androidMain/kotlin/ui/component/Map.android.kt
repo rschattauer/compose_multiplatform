@@ -20,7 +20,7 @@ import model.coordinate.Polygon
 
 @OptIn(MapboxExperimental::class)
 @Composable
-actual fun Map(
+actual fun ManualBridgeMap(
     modifier: Modifier,
     contentPadding: PaddingValues,
     polygons: ImmutableList<Polygon>,
@@ -55,6 +55,17 @@ actual fun Map(
         }
     }
 }
+
+@Composable
+actual fun SwiftBridgeMap(
+    modifier: Modifier,
+    contentPadding: PaddingValues,
+    polygons: ImmutableList<Polygon>,
+) = ManualBridgeMap(
+    modifier = modifier,
+    contentPadding = contentPadding,
+    polygons = polygons,
+)
 
 @Composable
 private operator fun PaddingValues.plus(other: PaddingValues): PaddingValues {
